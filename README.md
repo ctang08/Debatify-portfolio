@@ -1,6 +1,6 @@
 # Debatify
 
-**Christopher Tang · Debate research and preparation workspace**
+**Debate research and preparation workspace**
 
 A portfolio edition of Debatify’s Next.js application: evidence search, rich-text card preparation, argument workflows, accounts, subscriptions and office-hours experiments. The original application source is preserved with a **key-free local demo** as the default entry point.
 
