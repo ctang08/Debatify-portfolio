@@ -1,0 +1,195 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Default thumb color */
+  border-radius: 4px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); /* Shadow for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker color on hover */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Light track color */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background-color: #e1e1e1; /* Slightly darker track color on hover */
+}
+
+/* Dark mode custom scrollbar */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    background-color: #555; /* Dark thumb color */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #444; /* Darker color on hover */
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #333; /* Dark track color */
+  }
+
+  ::-webkit-scrollbar-track:hover {
+    background-color: #444; /* Slightly darker track color on hover */
+  }
+}
+
+.reset-injected-html * {
+  margin: 0 !important;
+}
+
+
+
+.calibri {
+  font-family: 'Calibri', sans-serif;
+}
+
+.arial {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.times {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.comic {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+@layer base {
+  /* Input field */
+  .inputfield {
+    @apply pl-12 p-3 text-xl text-gray-900 rounded-full bg-white shadow-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 w-full transition-all duration-300 ease-in-out;
+
+    /* Dark mode styling */
+    @apply dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-400;
+  }
+
+  /* Submit button */
+  .submitbutton {
+    @apply flex items-center justify-center gap-2 p-3 text-xl rounded-full bg-white shadow-lg border border-gray-300 
+    focus:ring-2 focus:ring-blue-500 w-full 
+    hover:scale-102 hover:shadow-xl;
+
+    /* Dark mode styling */
+    @apply dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-400;
+  }
+
+  /* Text box */
+  .textbox {
+    @apply p-6 text-xl rounded-xl bg-white backdrop-blur-sm shadow-lg border border-gray-300 overflow-y-auto ;
+
+    /* Dark mode styling */
+    @apply dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:backdrop-blur-sm dark:shadow-xl;
+  }
+  
+  .circlebutton {
+    @apply flex items-center justify-center gap-1 p-2 text-xl rounded-full 
+                bg-white border border-gray-300 shadow-lg 
+                dark:bg-gray-800 dark:border-gray-600 dark:text-white 
+                focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out 
+                hover:scale-110 hover:shadow-xl dark:hover:bg-gray-700
+  }
+
+  .defaulttext {
+    @apply text-gray-900 dark:text-white
+  }
+
+  .defaultbg {
+    @apply bg-gray-50 dark:bg-gray-800
+  }
+
+  .simpleform{
+    @apply flex items-center justify-center gap-2 py-1.5 px-2 rounded-lg bg-white shadow-lg border border-gray-300 
+    focus:ring-2 focus:ring-blue-500 font-semibold  
+    hover:scale-110 hover:shadow-xl cursor-pointer;
+
+    /* Dark mode styling */
+    @apply dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-400;
+  }
+
+}
+
+/* Sona orb + halo animation */
+.sona-orb {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 30% 15%,
+    #ffffff,
+    #e3f2ff 40%,
+    #2f7bff 80%
+  );
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.35),
+    0 0 0 1px rgba(15, 23, 42, 0.05);
+}
+
+@keyframes sonaPulseOrb {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.sona-orb--speaking {
+  animation: sonaPulseOrb 1.7s ease-in-out infinite;
+}
+
+.sona-halo {
+  position: absolute;
+  inset: -14px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9),
+    rgba(56, 189, 248, 0.2)
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes sonaPulseHalo {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.sona-halo--speaking {
+  animation: sonaPulseHalo 2.1s ease-out infinite;
+}
+
+.sona-halo-2 {
+  animation-delay: 1.05s;
+}
